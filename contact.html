@@ -1,34 +1,95 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>Contact | Aiza Golledge</title>
+		<title>Contact | Aiza Golledge Photography</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<link rel="stylesheet" href="css/reset.css">
 		<link rel="stylesheet" href="css/bootstrap.min.css">
 		<link rel="stylesheet" href="css/main.css">
 	</head>
 	<body>
-		<div class="page-header">
-			<h1>Aiza Golledge</h1>
-		</div>
-		<ul class="nav nav-tabs">
-			<li role="presentation"><a href="index.html">Home</a></li>
-			<li role="presentation"><a href="pictures.html">Gallery</a></li>
-			<li role="presentation"  class="active"><a href="contact.html">Contact</a></li>
-		</ul>
-		<div class="row">
-			<div class="span4">
-				<img id="self" src="images/r0052940.jpg">
-			</div>
 
-			<div class="span2">
-			</div>
-			<div class="span6">
-			<h2>Contact Me</h2>
-				<ul class="info">
-					<li>Location: Oakland, CA</li>
-					<li><a href="https://www.linkedin.com/pub/aiza-golledge/42/373/a96"><img src="images/icons/linkedin.png"></a></li>
+		<div class="page-header">
+			<h1>Aiza Golledge <small>Photography</small></h1>
+		</div>
+			<ul class="nav nav-tabs">
+				<li role="presentation"><a href="index.html">Home</a></li>
+				<li role="presentation"><a href="pictures.html">Gallery</a></li>
+				<li role="presentation"  class="active"><a href="contact.html">Contact</a></li>
+		</ul>
+	<div id="wrapper">
+		<div class="row contact">
+			<div class="col-sm-4" >
+			<h2><strong>Contact Info:</strong></h2>
+				<img id="self" src="images/r0052940.jpg" class="img-responsive hidden-xs"> 
+					<ul>
+					<li><strong>Name:</strong> Aiza Golledge</li>
+					<li><strong>Profession:</strong> Photography/Software Engineer</li>
+					<li><strong>Home Base:</strong> Oakland, CA</li>
+				
 				</ul>
 			</div>
+
+			<div class="col-sm-8">
+			
+				<div id="map"></div>
+			</div>
 		</div>
+		
+	</div>
+		<footer>
+&copy; Li 2014
+</footer>
+
+<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+	<script type="text/javascript"
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCeJiyCDtasirfHayqcyXpmfkjBC8fEJh4"></script>
+   <script type="text/javascript">
+   	var map;
+		var bounds;
+		var geocoder;
+		var center;
+		var marker;
+		var cityCircle;
+		var styles = [{"elementType":"labels.text","stylers":[{"visibility":"off"}]},{"featureType":"landscape.natural","elementType":"geometry.fill","stylers":[{"color":"#f5f5f2"},{"visibility":"on"}]},{"featureType":"administrative","stylers":[{"visibility":"off"}]},{"featureType":"transit","stylers":[{"visibility":"off"}]},{"featureType":"poi.attraction","stylers":[{"visibility":"off"}]},{"featureType":"landscape.man_made","elementType":"geometry.fill","stylers":[{"color":"#ffffff"},{"visibility":"on"}]},{"featureType":"poi.business","stylers":[{"visibility":"off"}]},{"featureType":"poi.medical","stylers":[{"visibility":"off"}]},{"featureType":"poi.place_of_worship","stylers":[{"visibility":"off"}]},{"featureType":"poi.school","stylers":[{"visibility":"off"}]},{"featureType":"poi.sports_complex","stylers":[{"visibility":"off"}]},{"featureType":"road.highway","elementType":"geometry","stylers":[{"color":"#ffffff"},{"visibility":"simplified"}]},{"featureType":"road.arterial","stylers":[{"visibility":"simplified"},{"color":"#ffffff"}]},{"featureType":"road.highway","elementType":"labels.icon","stylers":[{"color":"#ffffff"},{"visibility":"off"}]},{"featureType":"road.highway","elementType":"labels.icon","stylers":[{"visibility":"off"}]},{"featureType":"road.arterial","stylers":[{"color":"#ffffff"}]},{"featureType":"road.local","stylers":[{"color":"#ffffff"}]},{"featureType":"poi.park","elementType":"labels.icon","stylers":[{"visibility":"off"}]},{"featureType":"poi","elementType":"labels.icon","stylers":[{"visibility":"off"}]},{"featureType":"water","stylers":[{"color":"#71c8d4"}]},{"featureType":"landscape","stylers":[{"color":"#e5e8e7"}]},{"featureType":"poi.park","stylers":[{"color":"#8ba129"}]},{"featureType":"road","stylers":[{"color":"#ffffff"}]},{"featureType":"poi.sports_complex","elementType":"geometry","stylers":[{"color":"#c7c7c7"},{"visibility":"off"}]},{"featureType":"water","stylers":[{"color":"#a0d3d3"}]},{"featureType":"poi.park","stylers":[{"color":"#91b65d"}]},{"featureType":"poi.park","stylers":[{"gamma":1.51}]},{"featureType":"road.local","stylers":[{"visibility":"off"}]},{"featureType":"road.local","elementType":"geometry","stylers":[{"visibility":"on"}]},{"featureType":"poi.government","elementType":"geometry","stylers":[{"visibility":"off"}]},{"featureType":"landscape","stylers":[{"visibility":"off"}]},{"featureType":"road","elementType":"labels","stylers":[{"visibility":"off"}]},{"featureType":"road.arterial","elementType":"geometry","stylers":[{"visibility":"simplified"}]},{"featureType":"road.local","stylers":[{"visibility":"simplified"}]},{"featureType":"road"},{"featureType":"road"},{},{"featureType":"road.highway"}]
+		
+		function initialize() {
+  		var mapOptions = {
+    		center: new google.maps.LatLng(37.8044, -122.2708),
+    		zoom: 9,
+    		styles: styles
+	  	};
+	  	map = new google.maps.Map(document.getElementById('map'), mapOptions);
+	  	geocoder = new google.maps.Geocoder();
+	  	bounds = new google.maps.LatLngBounds();
+	  	marker = new google.maps.Marker({
+	  		position: mapOptions.center,
+	  		map: map,
+	  		icon: 'http://maps.google.com/mapfiles/ms/icons/yellow-dot.png'
+	  	})
+	  	cityCircle = new google.maps.Circle({
+	  		strokeColor: '#aaa',
+	  		strokeOpacity: 0.8,
+	  		strokeWeight: 2,
+	  		fillColor: '#333',
+	  		fillOpacity: .25,
+	  		map: map,
+	  		center: mapOptions.center,
+	  		radius: 25000
+	  	})
+    };
+
+
+    initialize();
+
+    google.maps.event.addDomListener(map, 'idle', function() {
+	  	center = map.getCenter();
+	  });
+
+	  $(window).resize(function() {
+	  	map.setCenter(center);
+	  })
+   
+   </script>
 	</body>
 </html>

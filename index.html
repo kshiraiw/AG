@@ -1,35 +1,68 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Aiza Golledge</title>
+	<title>Aiza Golledge Photography</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" href="css/reset.css">
 	<link rel="stylesheet" href="css/bootstrap.min.css">
-	<link rel="stylesheet" href="css/responsiveslides.css">
 	<link href='http://fonts.googleapis.com/css?family=Lora:400,700' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" href="css/main.css">
 	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script> 
-	<script src="js/responsiveslides.js"></script>
+	<script src="js/bootstrap.min.js"></script>
 </head>
 <body>
 	<div class="page-header">
-		<h1>Aiza Golledge </h1>
+		<h1>Aiza Golledge <small>Photography</small></h1>
 	</div>
-	<ul class="nav nav-tabs">
+	
+	<div class="nav nav-tabs">
 		<li role="presentation" class="active"><a href="index.html">Home</a></li>
-		<li role="presentation"><a href="pictures.html">Gallery</a></li>
+		<li role="presentation"><a class="gallery" href="pictures.html">Gallery</a></li>
 		<li role="presentation"><a href="contact.html">Contact</a></li>
-	</ul>
+	</div>
 
-<ul class="rslides">
-  <li><img src="images/r0003854.jpg" alt=""></li>
-  <li><img src="images/r0003858.jpg" alt=""></li>
-  <li><img src="images/r0006795.jpg" alt=""></li>
-  <li><img src="images/r0006810.jpg" alt=""></li>
-</ul>
+	<div id="intro" class="carousel slide">
+		<div class="container">
+			<ol class="carousel-indicators">
+				<li data-target="#intro" data-slide-to="0" class="active"></li>
+				<li data-target="#intro" data-slide-to="1"></li>
+				<li data-target="#intro" data-slide-to="2"></li>
+				<li data-target="#intro" data-slide-to="2"></li>
+			</ol>
 
-<script>
-	$(function() {
-		$(".rslides").responsiveSlides();
-	});
-</script>
+			<div class="carousel-inner">
+				<div class="item active">
+					<img src="images/r0003854.jpg" alt="" class="img">
+				</div>
+				<div class="item">
+					<img src="images/r0003858.jpg" alt="" class="img">
+				</div>
+				<div class="item">
+					<img src="images/r0006795.jpg" alt="" class="img">
+				</div>
+				<div class="item">
+					<img src="images/r0006810.jpg" alt="" class="img">
+				</div>
+			</div>
+
+		<a class="left carousel-control" href="#intro" data-slide="prev">
+        <span class="icon-prev"></span>
+     </a>
+     <a class="right carousel-control" href="#intro" data-slide="next">
+        <span class="icon-next"></span>
+     </a>  
+    </div>
+	</div>
+
+
+<footer>
+&copy; Li 2014
+</footer>
+
 </body>
+<script>
+$(document).ready(function () {
+$('.carousel').carousel('cycle');
+});  
+</script>
 </html>
